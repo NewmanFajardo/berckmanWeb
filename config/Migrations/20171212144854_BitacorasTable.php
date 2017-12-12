@@ -1,0 +1,25 @@
+<?php
+use Migrations\AbstractMigration;
+
+class BitacorasTable extends AbstractMigration
+{
+    /**
+     * Change Method.
+     *
+     * More information on this method is available here:
+     * http://docs.phinx.org/en/latest/migrations.html#the-change-method
+     * @return void
+     */
+    public function change()
+    {
+        $table = $this->table("bitacoras");
+        $table->addColumn('accion','text',array('null' => false))
+              ->addColumn('modulo','string',array('limit' => 20, 'null' => false))
+              ->addColumn('relacion','integer',array('null' => false))
+              ->addColumn('created','datetime')
+              ->addColumn('modified','datetime')
+              ->addColumn('usuario_id','integer',array('signed' => 'disabled'))
+              ->addForeignKey('usuario_id', 'usuarios' , 'id' , array('delete' => 'CASCADE' , 'update' => 'CASCADE') )
+              ->create();
+    }
+}
