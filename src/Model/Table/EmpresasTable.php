@@ -88,50 +88,52 @@ class EmpresasTable extends Table
         $validator
             ->scalar('nombre')
             ->requirePresence('nombre', 'create')
-            ->notEmpty('nombre');
+            ->notEmpty('nombre','Rellene este campo, por favor');
 
         $validator
             ->scalar('descripcion')
             ->requirePresence('descripcion', 'create')
-            ->notEmpty('descripcion');
+            ->notEmpty('descripcion','Rellene este campo, por favor');
 
         $validator
             ->scalar('mision')
             ->requirePresence('mision', 'create')
-            ->notEmpty('mision');
+            ->notEmpty('mision','Rellene este campo, por favor');
 
         $validator
             ->scalar('vision')
             ->requirePresence('vision', 'create')
-            ->notEmpty('vision');
+            ->notEmpty('vision','Rellene este campo, por favor');
 
         $validator
             ->scalar('valires')
             ->requirePresence('valires', 'create')
-            ->notEmpty('valires');
+            ->notEmpty('valires','Rellene este campo, por favor');
 
         $validator
             ->scalar('direccion')
             ->requirePresence('direccion', 'create')
-            ->notEmpty('direccion');
+            ->notEmpty('direccion','Rellene este campo, por favor');
 
         $validator
             ->scalar('telefono1')
             ->maxLength('telefono1', 11)
             ->requirePresence('telefono1', 'create')
-            ->notEmpty('telefono1');
+            ->notEmpty('telefono1','Rellene este campo, por favor');
 
         $validator
             ->scalar('telefono2')
+            ->add('telefono2','valid',['rule'=>'numeric','message' => 'El número telefónico no puede poseer letras!'])
             ->maxLength('telefono2', 11)
             ->requirePresence('telefono2', 'create')
-            ->notEmpty('telefono2');
+            ->notEmpty('telefono2','Rellene este campo, por favor');
 
         $validator
             ->scalar('correo')
+            ->add('correo','valid',['rule'=>'email','message' => 'Correo electrónico incorreto!'])
             ->maxLength('correo', 50)
             ->requirePresence('correo', 'create')
-            ->notEmpty('correo');
+            ->notEmpty('correo','Rellene este campo, por favor');
 
         return $validator;
     }
