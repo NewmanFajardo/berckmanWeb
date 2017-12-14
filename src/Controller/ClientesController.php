@@ -20,11 +20,7 @@ class ClientesController extends AppController
      */
     public function index()
     {
-        $this->set('clientes');
-        // $clientes = $this->paginate($this->Clientes);
-
-        // $this->set(compact('clientes'));
-        // $this->set('_serialize', ['clientes']);
+        
     }
 
     /**

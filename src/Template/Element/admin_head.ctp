@@ -4,7 +4,7 @@
 <div class="header-section">
  
 <!--toggle button start-->
-<a class="toggle-btn  menu-collapsed"><i class="fa fa-bars"></i></a>
+<a class="toggle-btn  menu-collapsed hidden-xs"><i class="fa fa-bars"></i></a>
 <!--toggle button end-->
 
 <!--notification menu start -->
@@ -22,7 +22,6 @@
 									</div>
 								</li>
 								<li><a href="#">
-								   <div class="user_img"><img src="../img/1.png" alt=""></div>
 								   <div class="notification_desc">
 									<p>Lorem ipsum dolor sit amet</p>
 									<p><span>1 hour ago</span></p>
@@ -30,7 +29,6 @@
 								   <div class="clearfix"></div>	
 								 </a></li>
 								 <li class="odd"><a href="#">
-									<div class="user_img"><img src="../img/1.png" alt=""></div>
 								   <div class="notification_desc">
 									<p>Lorem ipsum dolor sit amet </p>
 									<p><span>1 hour ago</span></p>
@@ -38,7 +36,6 @@
 								  <div class="clearfix"></div>	
 								 </a></li>
 								<li><a href="#">
-								   <div class="user_img"><img src="../img/1.png" alt=""></div>
 								   <div class="notification_desc">
 									<p>Lorem ipsum dolor sit amet </p>
 									<p><span>1 hour ago</span></p>
@@ -52,24 +49,6 @@
 								</li>
 							</ul>
 				</li>
-				<li class="login_box" id="loginContainer">
-						<div class="search-box">
-							<div id="sb-search" class="sb-search">
-								<form>
-									<input class="sb-search-input" placeholder="Enter your search term..." type="search" id="search">
-									<input class="sb-search-submit" type="submit" value="">
-									<span class="sb-icon-search"> </span>
-								</form>
-							</div>
-						</div>
-							<!-- search-scripts -->
-							<script src="../js/classie.js"></script>
-							<script src="../js/uisearch.js"></script>
-								<script>
-									new UISearch( document.getElementById( 'sb-search' ) );
-								</script>
-							<!-- //search-scripts -->
-				</li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i><span class="badge blue">3</span></a>
 						<ul class="dropdown-menu">
@@ -79,7 +58,6 @@
 								</div>
 							</li>
 							<li><a href="#">
-								<div class="user_img"><img src="../img/1.png" alt=""></div>
 							   <div class="notification_desc">
 								<p>Lorem ipsum dolor sit amet</p>
 								<p><span>1 hour ago</span></p>
@@ -87,7 +65,6 @@
 							  <div class="clearfix"></div>	
 							 </a></li>
 							 <li class="odd"><a href="#">
-								<div class="user_img"><img src="../img/1.png" alt=""></div>
 							   <div class="notification_desc">
 								<p>Lorem ipsum dolor sit amet </p>
 								<p><span>1 hour ago</span></p>
@@ -95,7 +72,6 @@
 							   <div class="clearfix"></div>	
 							 </a></li>
 							 <li><a href="#">
-								<div class="user_img"><img src="../img/1.png" alt=""></div>
 							   <div class="notification_desc">
 								<p>Lorem ipsum dolor sit amet </p>
 								<p><span>1 hour ago</span></p>
