@@ -20,7 +20,25 @@ class ClientesController extends AppController
      */
     public function index()
     {
-        
+        /*$cliente = $this->Clientes->find();*/
+        $cliente = $this->paginate($this->Clientes);
+        $this->set('clientes', $cliente);
+    }
+    public function agregar()
+    {
+        $cliente = $this->Clientes->newEntity();
+        if ($this->request->is('post')) {
+            $cliente = $this->Clientes->patchEntity($cliente, $this->request->getData());
+            if ($this->Clientes->save($cliente)) {
+                $this->Flash->success(__('The cliente has been saved.'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('The cliente could not be saved. Please, try again.'));
+        }
+        $usuarios = $this->Clientes->Usuarios->find('list', ['limit' => 200]);
+        $this->set(compact('cliente', 'usuarios'));
+        $this->set('_serialize', ['cliente']);
     }
 
     /**
@@ -45,22 +63,6 @@ class ClientesController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
-    {
-        $cliente = $this->Clientes->newEntity();
-        if ($this->request->is('post')) {
-            $cliente = $this->Clientes->patchEntity($cliente, $this->request->getData());
-            if ($this->Clientes->save($cliente)) {
-                $this->Flash->success(__('The cliente has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The cliente could not be saved. Please, try again.'));
-        }
-        $usuarios = $this->Clientes->Usuarios->find('list', ['limit' => 200]);
-        $this->set(compact('cliente', 'usuarios'));
-        $this->set('_serialize', ['cliente']);
-    }
 
     /**
      * Edit method
