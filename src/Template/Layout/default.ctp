@@ -18,17 +18,18 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <!DOCTYPE html>
 <html>
 <head>
-	
+
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+	<?= $this->element('admin_link') ?>
 </head>
-<body>
-    <?= $this->Flash->render() ?>
+<body class="sticky-header left-side-collapsed">
+	<?= $this->Flash->render() ?>
     <div class="container clearfix">
         <?= $this->fetch('content') ?>
     </div>
     <footer>
     </footer>
 </body>
+<?= $this->element('admin_foot') ?>
 </html>
