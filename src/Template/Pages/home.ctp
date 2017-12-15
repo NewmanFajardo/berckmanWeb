@@ -138,14 +138,13 @@ endif;
         <h3 id="productos">Productos y Servicios</h3>
         <span>Investigar, innovar y crear son parte de la cultura de nuestra empresa</span>
 
-        <div class="container">
-    
+        <div class="container">    
             <div class="w3agile_gallery_grids">
                 <div class="col-md-2 col-md-offset-1 w3agile_gallery_grid">
                     <div class="w3agile_gallery_image">
-                        <a class="sb" href="/berckmanWeb/img/home/servicios/s1box.png" title="provee un numero  determinado de servicios, accesibles a traves de internet mediante un modulo de comunicacion basado en la integracion de datos generados en el proceso de perforacion" class="img-responsive">
+                        <a class="sb" href="<?= dirname($_SERVER['PHP_SELF']).'/img/home/servicios/s1box.png';?>" title="provee un numero  determinado de servicios, accesibles a traves de internet mediante un modulo de comunicacion basado en la integracion de datos generados en el proceso de perforacion" class="img-responsive">
                             <figure>
-                                <img src="/berckmanWeb/img/home/servicios/s1.png" alt="view" class="img-responsive redimencionar"/>
+                                <?= $this->Html->image('home/servicios/s1.png',['alt' => 'VIEW','class' => 'class="responsive redimencionar']); ?>
                                 <figcaption>
                                 </figcaption>
                             </figure>
@@ -154,9 +153,9 @@ endif;
                 </div>
                 <div class="col-md-2 w3agile_gallery_grid">
                     <div class="w3agile_gallery_image">
-                        <a class="sb" title="Red de equipos de comunicacion a prueba de explotacion, instalado en la zona de perforacion, permite mantener la comunicacion directa con distantas areas de trabajo y vocear o evacuar al personal en caso de emergencia o contingencia." href="/berckmanWeb/img/home/servicios/s2box.jpg">
+                        <a class="sb" title="Red de equipos de comunicacion a prueba de explotacion, instalado en la zona de perforacion, permite mantener la comunicacion directa con distantas areas de trabajo y vocear o evacuar al personal en caso de emergencia o contingencia." href="<?= dirname($_SERVER['PHP_SELF']).'/img/home/servicios/s2box.jpg';?>">
                             <figure>
-                                <img src="/berckmanWeb/img/home/servicios/s2.png" alt="" class="img-responsive redimencionar" />
+                                <?= $this->Html->image('home/servicios/s2.png',['alt' => 'RPS','class' => 'class="responsive redimencionar']); ?>
                                 <figcaption>
                                 </figcaption>
                             </figure>
@@ -165,9 +164,9 @@ endif;
                 </div>
                 <div class="col-md-2 w3agile_gallery_grid">
                     <div class="w3agile_gallery_image">
-                        <a class="sb" title="Aplicacion web registrar, supervisar y gestionar el proceso, durante las distintas fases de proceso, inyeccion de vapor, fase de remojo, produccion en frio, caliente y programa de inyeccion y sus rendimientos, con desplieges de grafica e informacion para evalucion para evalucion del proyecto.  " href="/berckmanWeb/img/home/servicios/s3box.jpg">
+                        <a class="sb" title="Aplicacion web registrar, supervisar y gestionar el proceso, durante las distintas fases de proceso, inyeccion de vapor, fase de remojo, produccion en frio, caliente y programa de inyeccion y sus rendimientos, con desplieges de grafica e informacion para evalucion para evalucion del proyecto.  " href="<?= dirname($_SERVER['PHP_SELF']).'/img/home/servicios/s3box.jpg';?>">
                             <figure>
-                                <img src="/berckmanWeb/img/home/servicios/s3.png" alt="" class="img-responsive redimencionar" />
+                                <?= $this->Html->image('home/servicios/s3.png',['alt' => 'SIV','class' => 'class="responsive redimencionar']); ?>
                                 <figcaption>
                                 </figcaption>
                             </figure>
@@ -176,9 +175,9 @@ endif;
                 </div>
                 <div class="col-md-2 w3agile_gallery_grid w3-agileits">
                     <div class="w3agile_gallery_image">
-                        <a class="sb" title="Sistema de instrumentacion para equipos de perforacion que provee a los usuarios una pronta alerta que pudiere suscitarse durante la actividad de perforacion, tal como: perdida de presion, drilling break, etc." href="/berckmanWeb/img/home/servicios/s4box.jpg">
+                        <a class="sb" title="Sistema de instrumentacion para equipos de perforacion que provee a los usuarios una pronta alerta que pudiere suscitarse durante la actividad de perforacion, tal como: perdida de presion, drilling break, etc." href="<?= dirname($_SERVER['PHP_SELF']).'/img/home/servicios/s4box.jpg';?>">
                             <figure>
-                                <img src="/berckmanWeb/img/home/servicios/s4.png" alt="" class="img-responsive redimencionar" />
+                                <?= $this->Html->image('home/servicios/s4.png',['alt' => 'RED','class' => 'class="responsive redimencionar']); ?>
                                 <figcaption>
                                 </figcaption>
                             </figure>
@@ -187,9 +186,9 @@ endif;
                 </div>
                 <div class="col-md-2 w3agile_gallery_grid w3-agileits">
                     <div class="w3agile_gallery_image">
-                        <a class="sb" title="Sistema que obedece la necesidad de mantener segura el area de trabajo. esta solucion mantiene, en las areas asignadas, un monitoreo continuo sobre niveles de explosibilidad y exposiciones de gases toxicos a los cuales pudiera estar expuesto el personal durante la ejecucion de sus actividades . Permite gestionar y controlar dichas areas, asi como generar alarmas y programacion de simulacros" href="/berckmanWeb/img/home/servicios/s5box.jpg">
+                        <a class="sb" title="Sistema que obedece la necesidad de mantener segura el area de trabajo. esta solucion mantiene, en las areas asignadas, un monitoreo continuo sobre niveles de explosibilidad y exposiciones de gases toxicos a los cuales pudiera estar expuesto el personal durante la ejecucion de sus actividades . Permite gestionar y controlar dichas areas, asi como generar alarmas y programacion de simulacros" href="<?= dirname($_SERVER['PHP_SELF']).'/img/home/servicios/s5box.jpg';?>">
                             <figure>
-                                <img src="/berckmanWeb/img/home/servicios/s5.png" alt="" class="img-responsive redimencionar"/>
+                                <?= $this->Html->image('home/servicios/s5.png',['alt' => 'SDG','class' => 'class="responsive redimencionar']); ?>
                                 <figcaption>
                                 </figcaption>
                             </figure>
@@ -218,7 +217,7 @@ endif;
                 <div class="col-md-4 wthree_banner_info_left">
                     <div class="col-xs-4 wthree_banner_info_left_grid">
                         <div class="wthree_banner_info_left_grid1">
-                            <img src="/berckmanWeb/img/home/noticias/n3.jpg" alt=" " class="img-responsive" />
+                            <?= $this->Html->image('home/noticias/n3.jpg',['alt' => 'noticias3', 'class' => 'img-responsive']);?>
                         </div>
                     </div>
                     <div class="col-xs-8 wthree_banner_info_left_grid_left">
@@ -231,7 +230,7 @@ endif;
                 <div class="col-md-4 wthree_banner_info_left">
                     <div class="col-xs-4 w3l_banner_info_left_grid">
                         <div class="wthree_banner_info_left_grid1">
-                            <img src="/berckmanWeb/img/home/noticias/n1.jpg" alt=" " class="img-responsive" />
+                            <?= $this->Html->image('home/noticias/n1.jpg',['alt' => 'noticias3', 'class' => 'img-responsive']);?>
                         </div>
                     </div>
                     <div class="col-xs-8 wthree_banner_info_left_grid_left">
@@ -244,7 +243,7 @@ endif;
                 <div class="col-md-4 wthree_banner_info_left">
                     <div class="col-xs-4 wthree_banner_info_left_grid">
                         <div class="wthree_banner_info_left_grid1">
-                            <img src="/berckmanWeb/img/home/noticias/n2.jpg" alt=" " class="img-responsive" />
+                            <?= $this->Html->image('home/noticias/n2.jpg',['alt' => 'noticias3', 'class' => 'img-responsive']);?>
                         </div>
                     </div>
                     <div class="col-xs-8 wthree_banner_info_left_grid_left">
@@ -271,16 +270,16 @@ endif;
                     <div class="col-md-12">
                         <section class="center slider">
                             <div>
-                                <img src="/berckmanWeb/img/home/clientes/de.png">
+                                <?= $this->Html->image("home/clientes/de.png"); ?>
                             </div>
                             <div>
-                                <img src="/berckmanWeb/img/home/clientes/gts.png">
+                                <?= $this->Html->image("home/clientes/gts.png"); ?>
                             </div>
                             <div>
-                                <img src="/berckmanWeb/img/home/clientes/pdvsa.png">
+                                <?= $this->Html->image("home/clientes/pdvsa.png"); ?>
                             </div>
                             <div>
-                                <img src="/berckmanWeb/img/home/clientes/wcl.png">
+                                <?= $this->Html->image("home/clientes/wcl.png"); ?>
                             </div>
                         </section>
                     </div>
@@ -296,9 +295,43 @@ endif;
         <div class="container">
             <h3 class="tittle" id="titulo_contacto">Contactanos</h3>
             <span>Estamos ubicados en la zona industrial de maturin estado monagas</span>
-            <h4><a href="#">&#191;Deseas formar parte de nuestro equipo?</a></h4>
         </div>
     </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <?= $this->Html->image('curriculo.png',['alt' => 'secretaria','class' => 'img-cirruculo pull-right']); ?>
+            </div>
+            <div class="col-md-6">
+
+<h4>
+    <a data-toggle="modal" data-target="#myModal">
+        &#191;Deseas formar parte de nuestro equipo?
+    </a>
+</h4>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Curriculos</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Enviar</button>
+      </div>
+    </div>
+  </div>
+</div>
+            </div>
+        </div>  
+    </div>
+
     <div class="google-map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15730.889346700622!2d-63.26730791189444!3d9.7047225887852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c3339a96694cf1d%3A0x5b3b2690fff5e13c!2sMercado+de+Mayoristas%2C+Av.+Zona+Industrial%2C+Matur%C3%ADn%2C+Monagas!5e0!3m2!1ses!2sve!4v1512661625503"></iframe>
     </div>      
