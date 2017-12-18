@@ -22,8 +22,6 @@ class PersonalesTable extends AbstractMigration
               ->addColumn('modified','datetime')
               ->addColumn('empresa_id','integer',array('signed' => 'disabled'))
               ->addForeignKey('empresa_id', 'empresas' , 'id' , array('delete' => 'CASCADE' , 'update' => 'CASCADE') )
-              ->addColumn('usuario_id','integer',array('signed' => 'disabled'))
-              ->addForeignKey('usuario_id', 'usuarios' , 'id' , array('delete' => 'CASCADE' , 'update' => 'CASCADE') )
               ->create();
     }
 }

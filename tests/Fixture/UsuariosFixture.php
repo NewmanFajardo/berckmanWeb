@@ -46,8 +46,8 @@ class UsuariosFixture extends TestFixture
             'estatus' => 'Lorem ipsum dolor ',
             'posicion' => 1,
             'intentos' => 1,
-            'created' => '2017-12-12 18:24:52',
-            'modified' => '2017-12-12 18:24:52'
+            'created' => '2017-12-18 16:19:53',
+            'modified' => '2017-12-18 16:19:53'
         ],
     ];
 }

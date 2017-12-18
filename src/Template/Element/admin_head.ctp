@@ -14,7 +14,6 @@
 			<ul class="nofitications-dropdown">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-envelope"></i><span class="badge">3</span></a>
-						
 							<ul class="dropdown-menu">
 								<li>
 									<div class="notification_header">

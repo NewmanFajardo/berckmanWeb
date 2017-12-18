@@ -7,10 +7,8 @@
 	<div class="logo-icon text-center">
 		<a href="#"><i class="lnr lnr-home"></i> </a>
 	</div>
-
 	<!--logo and iconic logo end-->
 	<div class="left-side-inner">
-
 		<!--sidebar nav start-->
 			<ul class="nav nav-pills nav-stacked custom-nav">
 				<li><a href="#"><i class="lnr lnr-apartment"></i></i><span>Empresa</span></a></li>

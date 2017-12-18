@@ -47,4 +47,10 @@ class Cliente extends Entity
         'modified' => true,
         'usuarios' => true
     ];
+    /*protected function _setActivador($activador){
+        return $activador=0;
+    }
+    protected function _setPosicion($posicion){
+        return $posicion=0;
+    }*/
 }

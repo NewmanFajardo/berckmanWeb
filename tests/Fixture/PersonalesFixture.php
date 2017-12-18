@@ -26,15 +26,12 @@ class PersonalesFixture extends TestFixture
         'created' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         'modified' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         'empresa_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'usuario_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         '_indexes' => [
             'empresa_id' => ['type' => 'index', 'columns' => ['empresa_id'], 'length' => []],
-            'usuario_id' => ['type' => 'index', 'columns' => ['usuario_id'], 'length' => []],
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
             'personales_ibfk_1' => ['type' => 'foreign', 'columns' => ['empresa_id'], 'references' => ['empresas', 'id'], 'update' => 'cascade', 'delete' => 'cascade', 'length' => []],
-            'personales_ibfk_2' => ['type' => 'foreign', 'columns' => ['usuario_id'], 'references' => ['usuarios', 'id'], 'update' => 'cascade', 'delete' => 'cascade', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -56,10 +53,9 @@ class PersonalesFixture extends TestFixture
             'cargo' => 'Lorem ipsum dolor ',
             'correo' => 'Lorem ipsum dolor sit amet',
             'departamento' => 'Lorem ipsum dolor sit amet',
-            'created' => '2017-12-12 18:25:32',
-            'modified' => '2017-12-12 18:25:32',
-            'empresa_id' => 1,
-            'usuario_id' => 1
+            'created' => '2017-12-18 16:17:53',
+            'modified' => '2017-12-18 16:17:53',
+            'empresa_id' => 1
         ],
     ];
 }

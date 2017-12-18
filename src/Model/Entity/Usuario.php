@@ -15,9 +15,9 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Bitacora[] $bitacoras
- * @property \App\Model\Entity\Personale[] $personales
  * @property \App\Model\Entity\Recuperacione[] $recuperaciones
  * @property \App\Model\Entity\Cliente[] $clientes
+ * @property \App\Model\Entity\Personale[] $personales
  */
 class Usuario extends Entity
 {
@@ -39,8 +39,8 @@ class Usuario extends Entity
         'created' => true,
         'modified' => true,
         'bitacoras' => true,
-        'personales' => true,
         'recuperaciones' => true,
-        'clientes' => true
+        'clientes' => true,
+        'personales' => true
     ];
 }

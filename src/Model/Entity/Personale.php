@@ -15,10 +15,9 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  * @property int $empresa_id
- * @property int $usuario_id
  *
  * @property \App\Model\Entity\Empresa $empresa
- * @property \App\Model\Entity\Usuario $usuario
+ * @property \App\Model\Entity\Usuario[] $usuarios
  */
 class Personale extends Entity
 {
@@ -41,8 +40,7 @@ class Personale extends Entity
         'created' => true,
         'modified' => true,
         'empresa_id' => true,
-        'usuario_id' => true,
         'empresa' => true,
-        'usuario' => true
+        'usuarios' => true
     ];
 }

@@ -10,7 +10,7 @@ use Cake\Validation\Validator;
  * Personales Model
  *
  * @property \App\Model\Table\EmpresasTable|\Cake\ORM\Association\BelongsTo $Empresas
- * @property \App\Model\Table\UsuariosTable|\Cake\ORM\Association\BelongsTo $Usuarios
+ * @property \App\Model\Table\UsuariosTable|\Cake\ORM\Association\BelongsToMany $Usuarios
  *
  * @method \App\Model\Entity\Personale get($primaryKey, $options = [])
  * @method \App\Model\Entity\Personale newEntity($data = null, array $options = [])
@@ -45,9 +45,10 @@ class PersonalesTable extends Table
             'foreignKey' => 'empresa_id',
             'joinType' => 'INNER'
         ]);
-        $this->belongsTo('Usuarios', [
-            'foreignKey' => 'usuario_id',
-            'joinType' => 'INNER'
+        $this->belongsToMany('Usuarios', [
+            'foreignKey' => 'personale_id',
+            'targetForeignKey' => 'usuario_id',
+            'joinTable' => 'personales_usuarios'
         ]);
     }
 
@@ -106,7 +107,6 @@ class PersonalesTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['empresa_id'], 'Empresas'));
-        $rules->add($rules->existsIn(['usuario_id'], 'Usuarios'));
 
         return $rules;
     }

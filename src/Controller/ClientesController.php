@@ -4,92 +4,72 @@ namespace App\Controller;
 use App\Controller\AppController;
 
 /**
- * Clientes Controller
- *
- * @property \App\Model\Table\ClientesTable $Clientes
- *
- * @method \App\Model\Entity\Cliente[] paginate($object = null, array $settings = [])
+ * Controlador de clientes
  */
 class ClientesController extends AppController
 {
 
     /**
-     * Index method
-     *
-     * @return \Cake\Http\Response|void
-     */
+    * Metodo para mostrar todos clientes
+    */
     public function index()
     {
-        /*$cliente = $this->Clientes->find();*/
-        $cliente = $this->paginate($this->Clientes);
+        $cliente = $this->Clientes->find();
+        /*$cliente = $this->paginate($this->Clientes);*/
         $this->set('clientes', $cliente);
     }
+    
+    /**
+    * Metodo para agragar nuevos clientes
+    */
     public function agregar()
     {
         $cliente = $this->Clientes->newEntity();
         if ($this->request->is('post')) {
-            $cliente = $this->Clientes->patchEntity($cliente, $this->request->getData());
+            // debug($this->request->data);
+            $cliente = $this->Clientes->patchEntity($cliente, $this->request->data());
             if ($this->Clientes->save($cliente)) {
-                $this->Flash->success(__('The cliente has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+                $this->Flash->success(__('Registrado con exito.'));
+                return $this->redirect(['controller' => 'Clientes']);
             }
-            $this->Flash->error(__('The cliente could not be saved. Please, try again.'));
+            else{
+                $this->Flash->error(__('Error al registrar, intente nuevamente.'));
+            }
         }
-        $usuarios = $this->Clientes->Usuarios->find('list', ['limit' => 200]);
-        $this->set(compact('cliente', 'usuarios'));
-        $this->set('_serialize', ['cliente']);
+        $this->set(compact('cliente'));
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id Cliente id.
-     * @return \Cake\Http\Response|void
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     * Metodo para ver los detalles de los clientes.
      */
-    public function view($id = null)
+    public function ver($id = null)
     {
-        $cliente = $this->Clientes->get($id, [
-            'contain' => ['Usuarios']
-        ]);
+        $cliente = $this->Clientes->get($id);
 
         $this->set('cliente', $cliente);
         $this->set('_serialize', ['cliente']);
     }
-
+    
     /**
-     * Add method
-     *
-     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
-     */
-
-    /**
-     * Edit method
-     *
-     * @param string|null $id Cliente id.
-     * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
-    public function edit($id = null)
+    * Metodo para modificar los clientes.
+    */
+    public function modificar($id = null)
     {
-        $cliente = $this->Clientes->get($id, [
-            'contain' => ['Usuarios']
-        ]);
+        $cliente = $this->Clientes->get($id);
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $cliente = $this->Clientes->patchEntity($cliente, $this->request->getData());
             if ($this->Clientes->save($cliente)) {
-                $this->Flash->success(__('The cliente has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+                $this->Flash->success(__('Modificacion exitosa.'));
+                /*return $this->redirect(['action' => 'index']);*/
             }
-            $this->Flash->error(__('The cliente could not be saved. Please, try again.'));
+            else{
+                $this->Flash->error(__('Error al modificar, Intente de nuevo.'));
+            }
         }
-        $usuarios = $this->Clientes->Usuarios->find('list', ['limit' => 200]);
-        $this->set(compact('cliente', 'usuarios'));
-        $this->set('_serialize', ['cliente']);
-    }
 
+        $this->set(compact('cliente'));
+    }
     /**
      * Delete method
      *
@@ -102,9 +82,9 @@ class ClientesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $cliente = $this->Clientes->get($id);
         if ($this->Clientes->delete($cliente)) {
-            $this->Flash->success(__('The cliente has been deleted.'));
+            $this->Flash->success(__('Cliente eliminado con exito.'));
         } else {
-            $this->Flash->error(__('The cliente could not be deleted. Please, try again.'));
+            $this->Flash->error(__('Error al eliminar, intente nuevamente.'));
         }
 
         return $this->redirect(['action' => 'index']);

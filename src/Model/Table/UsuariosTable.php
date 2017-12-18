@@ -10,9 +10,9 @@ use Cake\Validation\Validator;
  * Usuarios Model
  *
  * @property \App\Model\Table\BitacorasTable|\Cake\ORM\Association\HasMany $Bitacoras
- * @property \App\Model\Table\PersonalesTable|\Cake\ORM\Association\HasMany $Personales
  * @property \App\Model\Table\RecuperacionesTable|\Cake\ORM\Association\HasMany $Recuperaciones
  * @property \App\Model\Table\ClientesTable|\Cake\ORM\Association\BelongsToMany $Clientes
+ * @property \App\Model\Table\PersonalesTable|\Cake\ORM\Association\BelongsToMany $Personales
  *
  * @method \App\Model\Entity\Usuario get($primaryKey, $options = [])
  * @method \App\Model\Entity\Usuario newEntity($data = null, array $options = [])
@@ -46,9 +46,6 @@ class UsuariosTable extends Table
         $this->hasMany('Bitacoras', [
             'foreignKey' => 'usuario_id'
         ]);
-        $this->hasMany('Personales', [
-            'foreignKey' => 'usuario_id'
-        ]);
         $this->hasMany('Recuperaciones', [
             'foreignKey' => 'usuario_id'
         ]);
@@ -56,6 +53,11 @@ class UsuariosTable extends Table
             'foreignKey' => 'usuario_id',
             'targetForeignKey' => 'cliente_id',
             'joinTable' => 'clientes_usuarios'
+        ]);
+        $this->belongsToMany('Personales', [
+            'foreignKey' => 'usuario_id',
+            'targetForeignKey' => 'personale_id',
+            'joinTable' => 'personales_usuarios'
         ]);
     }
 
