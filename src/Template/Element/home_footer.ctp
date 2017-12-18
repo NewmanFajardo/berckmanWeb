@@ -26,7 +26,6 @@
 					<li><a class="fb" href="#"><i class="fa fa-facebook"></i>Dale me gusta Facebook</a></li>
 					<li><a class="fb1" href="#"><i class="fa fa-twitter"></i>Siguenos en Twitter</a></li>
 					<li><a class="fb2" href="#"><i class="fa fa-google-plus"></i>Agreganos en Google Plus</a></li>
-					<li><a class="fb4" href="#"><i class="fa fa-pinterest-p"></i>Siguenos en Pinterest</a></li>
 				</ul>
 			</div>
 			<div class="col-md-3 w3l-footer three">

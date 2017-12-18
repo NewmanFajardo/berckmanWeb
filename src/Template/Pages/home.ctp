@@ -51,6 +51,7 @@ endif;
     <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&amp;subset=latin-ext,vietnamese" rel="stylesheet">
 </head>
 <body>
+
 <div class="Main-agile">
     <?= $this->element('home_menu') ?>
             <div class="slider">
@@ -121,6 +122,7 @@ endif;
 <!-- contenido -->
 
 <!-- nosotros -->
+<?= h($empresa->nombre); ?>
 <div class="about-w3l" id="about">
     <div class="container">
         <div class="about-main-w3l">
@@ -305,29 +307,34 @@ endif;
             </div>
             <div class="col-md-6">
 
-<h4>
-    <a data-toggle="modal" data-target="#myModal">
-        &#191;Deseas formar parte de nuestro equipo?
-    </a>
-</h4>
+                <h4>
+                    <a data-toggle="modal" data-target=".bs-example-modal-lg" style="cursor: pointer;">
+                        &#191;Deseas formar parte de nuestro equipo?
+                    </a>
+                </h4>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Curriculos</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Enviar</button>
-      </div>
-    </div>
-  </div>
-</div>
+                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Ingresa tu curriculo</h4>
+                            </div>
+                            <div class="modal-body">
+                                <?php
+                                    echo $this->Form->create($curriculo, ['type' => 'file']);
+                                    echo $this->Form->input('cedula');
+                                    echo $this->Form->input('nombre');
+                                    echo $this->Form->input('apellido');
+                                    echo $this->Form->input('link',['type' => 'file']);
+                                    echo $this->Form->input('profesion_id');
+                                    echo $this->Form->button('enviar');
+                                    echo $this->Form->end();
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>  
     </div>
@@ -430,5 +437,6 @@ endif;
 
                 });
             </script>
+
 </body>
 </html>

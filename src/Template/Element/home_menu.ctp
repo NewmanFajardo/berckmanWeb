@@ -11,7 +11,7 @@
 						<img src="/berckmanWeb/img/home/menu.png" class="img-responsive" alt="menu">
 			        </button>
 			      <a class="navbar-brand" href="#">
-			      	<img src="/berckmanWeb/img/home/logo.png" alt="log berckman" style="height: 40px; width: 120px;">
+			      	<img src="<?= dirname($_SERVER['PHP_SELF']).'/img/home/logo.png';?>" style="height: 40px; width: 120px;">
 			      </a>
 			    </div>
 

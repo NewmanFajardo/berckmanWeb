@@ -18,6 +18,7 @@ use Cake\Core\Configure;
 use Cake\Network\Exception\ForbiddenException;
 use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
+use Cake\ORM\TableRegistry;
 
 /**
  * Static content controller
@@ -38,6 +39,7 @@ class PagesController extends AppController
      * @throws \Cake\Network\Exception\NotFoundException When the view file could not
      *   be found or \Cake\View\Exception\MissingTemplateException in debug mode.
      */
+
     public function display(...$path)
     {
         $count = count($path);
@@ -65,5 +67,18 @@ class PagesController extends AppController
             }
             throw new NotFoundException();
         }
+    }
+
+    /**
+     * [metodo home]
+     * @return [public] [muestra los datos de la pagina de aterrizaje]
+     */
+    public function home(){
+        $this->loadModel('Empresas');
+        $empresa = $this->Empresas->find('all'); 
+        $this->set('empresa',$empresa);
+
+        $Curriculo = TableRegistry::get('Curriculums')->newEntity();
+        $this->set("curriculo",$Curriculo);
     }
 }
