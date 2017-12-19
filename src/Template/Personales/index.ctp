@@ -1,8 +1,8 @@
 <?php
 /**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Personale[]|\Cake\Collection\CollectionInterface $personales
- */
+    * Author: Newman Fajardo
+    * Archivo para mostrar los personales registrados
+*/
 ?>
 <section>
     <?= $this->element('admin_menu') ?>
@@ -31,9 +31,9 @@
                                     <td><?= h($personale->correo) ?></td>
                                     <!-- <td><?= $personale->has('empresa') ? $this->Html->link($personale->empresa->id, ['controller' => 'Empresas', 'action' => 'view', $personale->empresa->id]) : '' ?></td> -->
                                     <td class="actions">
-                                        <?= $this->Html->link(__('View'), ['action' => 'view', $personale->id]) ?>
-                                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $personale->id]) ?>
-                                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $personale->id], ['confirm' => __('Are you sure you want to delete # {0}?', $personale->id)]) ?>
+                                        <?= $this->Html->link(__('Ver'), ['action' => 'ver', $personale->id] , ['class' => 'btn btn-info' , 'title' => 'Ver detalles']) ?>
+                                        <?= $this->Html->link(__('Modificar'), ['action' => 'modificar', $personale->id] , ['class' => 'btn btn-primary' , 'title' => 'Modificar']) ?>
+                                        <?= $this->Form->postLink(__('Elimiar'), ['action' => 'eliminar', $personale->id], ['confirm' => __('Desea eliminar el personal '.$personale->nombre.' ?', $personale->id) , 'class' => 'btn btn-danger' , 'title' => 'Eliminar']) ?>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

@@ -1,7 +1,9 @@
-<!--
-	* Author: Newman Fajardo
-	* Vista para ver detalles de cliente	
--->
+<?php
+/*
+    * Author: Newman Fajardo
+    * vista para ver los detalles de un cliente
+*/
+?>
 <section>
 	<?= $this->element('admin_menu') ?>
 	<?= $this->element('admin_head') ?>

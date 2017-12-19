@@ -1,7 +1,9 @@
-<!--
-	Author: Newman Fajardo
-	Vista de clientes
--->
+<?php
+/*
+    * Author: Newman Fajardo
+    * Vista de clientes
+*/
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>

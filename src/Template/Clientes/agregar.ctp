@@ -1,7 +1,9 @@
-<!--
-	* Author: Newman Fajardo
-	* Formulario para crear nuevos clientes
--->
+<?php
+/*
+    * Author: Newman Fajardo
+    * Formulario para crear nuevos clientes
+*/
+?>
 <section>
 	<div class="col-xs-12">
 		<div class="main-content main-content4">
@@ -15,9 +17,6 @@
 						echo"<div class='form-group'>".$this->Form->input('pais',['options' => ['Venezuela' => 'Venezuela', 'Colombia' => 'Colombia'], 'class'=>'form-control'])."</div>";		
 						echo"<div class='form-group'>".$this->Form->input('correo' , ['class'=>'form-control' , 'type' => 'text'])."</div>";		
 						echo"<div class='form-group'>".$this->Form->input('img' , ['label' => 'Imagen','class'=>'form-control' , 'type' => 'text'])."</div>";		
-						echo"<div class='form-group'>".$this->Form->input('activador' , ['type' => 'hidden' , 'value' => 0])."</div>";		
-						echo"<div class='form-group'>".$this->Form->input('posicion' , ['type' => 'hidden' , 'value' => 0] )."</div>";		
-						echo"<div class='form-group'>".$this->Form->input('estatus' , ['type' => 'hidden' , 'value' => 'Pendiente'] )."</div>";		
 						echo"<div class='form-group'>".$this->Form->button('Registrar')."</div>";		
 					echo $this->Form->end();
 				?>

@@ -17,6 +17,7 @@ class ClientesController extends AppController
         $cliente = $this->Clientes->find();
         /*$cliente = $this->paginate($this->Clientes);*/
         $this->set('clientes', $cliente);
+        $this->set('_serialize', ['clientes']);
     }
     
     /**
@@ -28,6 +29,9 @@ class ClientesController extends AppController
         if ($this->request->is('post')) {
             // debug($this->request->data);
             $cliente = $this->Clientes->patchEntity($cliente, $this->request->data());
+            $cliente->estatus = "Pendiente";
+            $cliente->posicion = 0;
+            $cliente->activador = 0;
             if ($this->Clientes->save($cliente)) {
                 $this->Flash->success(__('Registrado con exito.'));
                 return $this->redirect(['controller' => 'Clientes']);
@@ -37,6 +41,7 @@ class ClientesController extends AppController
             }
         }
         $this->set(compact('cliente'));
+        $this->set('_serialize', ['cliente']);
     }
 
     /**

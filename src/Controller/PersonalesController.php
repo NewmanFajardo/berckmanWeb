@@ -14,10 +14,8 @@ class PersonalesController extends AppController
 {
 
     /**
-     * Index method
-     *
-     * @return \Cake\Http\Response|void
-     */
+    * Metodo para mostrar todos clientes
+    */
     public function index()
     {
         $this->paginate = [
@@ -30,69 +28,57 @@ class PersonalesController extends AppController
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id Personale id.
-     * @return \Cake\Http\Response|void
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     * Metodo para agregar los personales.
      */
-    public function view($id = null)
+    public function agregar()
     {
-        $personale = $this->Personales->get($id, [
-            'contain' => ['Empresas', 'Usuarios']
-        ]);
+        $personale = $this->Personales->newEntity();
+        
+        if ($this->request->is('post')) {
+            $personale = $this->Personales->patchEntity($personale, $this->request->getData());
+            $personale->empresa_id=1;
+            if ($this->Personales->save($personale)) {
+                $this->Flash->success(__('Personal registrado con exito.'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('Error al registrar, intente nuevamente.'));
+        }
+        // $empresas = $this->Personales->Empresas->find('list', ['limit' => 200]);
+        // $usuarios = $this->Personales->Usuarios->find('list', ['limit' => 200]);
+        // $this->set(compact('personale', 'empresas', 'usuarios'));
+
+        $this->set(compact('personale'));
+        $this->set('_serialize', ['personale']);
+    }
+
+    /**
+     * Metodo para ver los detalles de los personales.
+     */
+    public function ver($id = null)
+    {
+        $personale = $this->Personales->get($id);
 
         $this->set('personale', $personale);
         $this->set('_serialize', ['personale']);
     }
 
     /**
-     * Add method
-     *
-     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
+     * Metodo para modificar de los personales.
      */
-    public function add()
+    public function modificar($id = null)
     {
-        $personale = $this->Personales->newEntity();
-        if ($this->request->is('post')) {
-            $personale = $this->Personales->patchEntity($personale, $this->request->getData());
-            if ($this->Personales->save($personale)) {
-                $this->Flash->success(__('The personale has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The personale could not be saved. Please, try again.'));
-        }
-        $empresas = $this->Personales->Empresas->find('list', ['limit' => 200]);
-        $usuarios = $this->Personales->Usuarios->find('list', ['limit' => 200]);
-        $this->set(compact('personale', 'empresas', 'usuarios'));
-        $this->set('_serialize', ['personale']);
-    }
-
-    /**
-     * Edit method
-     *
-     * @param string|null $id Personale id.
-     * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
-    public function edit($id = null)
-    {
-        $personale = $this->Personales->get($id, [
-            'contain' => ['Usuarios']
-        ]);
+        $personale = $this->Personales->get($id);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $personale = $this->Personales->patchEntity($personale, $this->request->getData());
             if ($this->Personales->save($personale)) {
-                $this->Flash->success(__('The personale has been saved.'));
+                $this->Flash->success(__('Registro modificardo.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The personale could not be saved. Please, try again.'));
+            $this->Flash->error(__('Error al modificar, intente nuevamente.'));
         }
-        $empresas = $this->Personales->Empresas->find('list', ['limit' => 200]);
-        $usuarios = $this->Personales->Usuarios->find('list', ['limit' => 200]);
-        $this->set(compact('personale', 'empresas', 'usuarios'));
+        $this->set(compact('personale'));
         $this->set('_serialize', ['personale']);
     }
 

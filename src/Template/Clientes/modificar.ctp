@@ -1,7 +1,9 @@
-<!--
-	* Author: Newman Fajardo
-	* Formulario para modificar un cliente
--->
+<?php
+/*
+    * Author: Newman Fajardo
+    * Formulario para modificar un cliente
+*/
+?>
 <section>
 	<div class="col-xs-12">
 		<div class="main-content main-content4">
