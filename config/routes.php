@@ -49,7 +49,8 @@ Router::scope('/', function (RouteBuilder $routes) {
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
-    $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+    /*               url              controlador             metodo   template */
+    $routes->connect('/', ['controller' => 'Pages', 'action' => 'home', 'home']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
@@ -78,7 +79,6 @@ Router::scope('/', function (RouteBuilder $routes) {
 Router::scope('/clientes',function($router){
     $router->connect('/index',['controller' => 'Clientes' , 'action' => 'index']);
 });
-
 /**
  * Load all plugin routes. See the Plugin documentation on
  * how to customize the loading of plugin routes.
