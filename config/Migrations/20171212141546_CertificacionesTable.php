@@ -14,6 +14,7 @@ class CertificacionesTable extends AbstractMigration
     {
         $table = $this->table("certificaciones");
         $table->addColumn('codigo','text',array('null' => false))
+              ->addColumn('nombre','text',array('null' => false))
               ->addColumn('img','text',array('null' => false))
               ->addColumn('link','text',array('null' => false))
               ->addColumn('created','datetime')

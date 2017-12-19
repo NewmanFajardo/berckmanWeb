@@ -17,7 +17,7 @@ class EmpresasTable extends AbstractMigration
               ->addColumn('descripcion','text',array('null' => false))
               ->addColumn('mision','text',array('null' => false))
               ->addColumn('vision','text',array('null' => false))
-              ->addColumn('valires','text',array('null' => false))
+              ->addColumn('valores','text',array('null' => false))
               ->addColumn('direccion','text',array('null' => false))
               ->addColumn('telefono1','string',array('limit' => 13 , 'null' => false))
               ->addColumn('telefono2','string',array('limit' => 13 , 'null' => false))
