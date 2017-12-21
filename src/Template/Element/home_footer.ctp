@@ -3,8 +3,10 @@
 	<div class="w3ls-footer-grids">
 		<div class="container">
 			<div class="col-md-3 w3l-footer one">
-				<h2>BERCKMAN C.A</h2>
-				<p> Somos la empresa lider en servicios y productos tecnol&oacute;gicos de vanguardia con los mayores estandares de calidad, donde la prioridad es el cliente.</p>
+                <?php foreach ($empresa as $empresas): ?>
+					<h2><?= h($empresas->nombre) ?></h2>
+                    <p><?= h($empresas->descripcion) ?></p>
+                <?php endforeach; ?>
 				<div class="clearfix"></div>
 			</div>
 			<div class="col-md-3 w3l-footer agileinfo_footer_grid">
@@ -31,8 +33,16 @@
 			<div class="col-md-3 w3l-footer three">
 				<h3>Direcci&oacute;n</h3>
 				<ul>
-					<li><i class="fa fa-map-marker"></i><p>AV Via San Jaime Edif Mercamat<span> Piso PB Local 70 Sector Zona</span>  Industrial Matur&iacute;n Monagas Zona Postal 6201 </p><div class="clearfix"></div> </li>
-					<li><i class="fa fa-phone"></i><p>0291-6514960</p> <div class="clearfix"></div> </li>
+					<li><i class="fa fa-map-marker"></i>
+	                <?php foreach ($empresa as $empresas): ?>
+	                    <p><?= h($empresas->direccion) ?></p>
+	                <?php endforeach; ?>
+                <div class="clearfix"></div> </li>
+					<li><i class="fa fa-phone"></i>
+	                <?php foreach ($empresa as $empresas): ?>
+	                    <p><?= h($empresas->telefono1." - ".$empresas->telefono2) ?></p>
+	                <?php endforeach; ?>
+					<div class="clearfix"></div> </li>
 					<li><i class="fa fa-envelope-o"></i><a href="mailto:contacto@berckman.com">contacto@berckman.com</a> <div class="clearfix"></div></li>
 				</ul>
 			</div>

@@ -122,13 +122,14 @@ endif;
 <!-- contenido -->
 
 <!-- nosotros -->
-<?= h($empresa->nombre); ?>
 <div class="about-w3l" id="about">
     <div class="container">
         <div class="about-main-w3l">
             <div class="about-top-w3l">
                <h3>Nosotros</h3>
-               <p>Somos una empresa tecnol&oacute;gica de vanguardia, pues ofrecemos productos y servicios con los mas altos est&aacute;ndares de calidad. Centramos nuestro desarrollo en la cultura de mejoramiento continuo, formulando equipos de trabajo comprometidos totalmente con nuestros clientes cuidando ante todo el patrimonio de la futuras generaciones.</p>
+                <?php foreach ($empresa as $empresas): ?>
+                    <p><?= h($empresas->descripcion) ?></p>
+                <?php endforeach; ?>
             </div>      
         </div>
     </div>
@@ -142,61 +143,52 @@ endif;
 
         <div class="container">    
             <div class="w3agile_gallery_grids">
-                <div class="col-md-2 col-md-offset-1 w3agile_gallery_grid">
-                    <div class="w3agile_gallery_image">
-                        <a class="sb" href="<?= dirname($_SERVER['PHP_SELF']).'/img/home/servicios/s1box.png';?>" title="provee un numero  determinado de servicios, accesibles a traves de internet mediante un modulo de comunicacion basado en la integracion de datos generados en el proceso de perforacion" class="img-responsive">
-                            <figure>
-                                <?= $this->Html->image('home/servicios/s1.png',['alt' => 'VIEW','class' => 'class="responsive redimencionar']); ?>
-                                <figcaption>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-2 w3agile_gallery_grid">
-                    <div class="w3agile_gallery_image">
-                        <a class="sb" title="Red de equipos de comunicacion a prueba de explotacion, instalado en la zona de perforacion, permite mantener la comunicacion directa con distantas areas de trabajo y vocear o evacuar al personal en caso de emergencia o contingencia." href="<?= dirname($_SERVER['PHP_SELF']).'/img/home/servicios/s2box.jpg';?>">
-                            <figure>
-                                <?= $this->Html->image('home/servicios/s2.png',['alt' => 'RPS','class' => 'class="responsive redimencionar']); ?>
-                                <figcaption>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-2 w3agile_gallery_grid">
-                    <div class="w3agile_gallery_image">
-                        <a class="sb" title="Aplicacion web registrar, supervisar y gestionar el proceso, durante las distintas fases de proceso, inyeccion de vapor, fase de remojo, produccion en frio, caliente y programa de inyeccion y sus rendimientos, con desplieges de grafica e informacion para evalucion para evalucion del proyecto.  " href="<?= dirname($_SERVER['PHP_SELF']).'/img/home/servicios/s3box.jpg';?>">
-                            <figure>
-                                <?= $this->Html->image('home/servicios/s3.png',['alt' => 'SIV','class' => 'class="responsive redimencionar']); ?>
-                                <figcaption>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-2 w3agile_gallery_grid w3-agileits">
-                    <div class="w3agile_gallery_image">
-                        <a class="sb" title="Sistema de instrumentacion para equipos de perforacion que provee a los usuarios una pronta alerta que pudiere suscitarse durante la actividad de perforacion, tal como: perdida de presion, drilling break, etc." href="<?= dirname($_SERVER['PHP_SELF']).'/img/home/servicios/s4box.jpg';?>">
-                            <figure>
-                                <?= $this->Html->image('home/servicios/s4.png',['alt' => 'RED','class' => 'class="responsive redimencionar']); ?>
-                                <figcaption>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-2 w3agile_gallery_grid w3-agileits">
-                    <div class="w3agile_gallery_image">
-                        <a class="sb" title="Sistema que obedece la necesidad de mantener segura el area de trabajo. esta solucion mantiene, en las areas asignadas, un monitoreo continuo sobre niveles de explosibilidad y exposiciones de gases toxicos a los cuales pudiera estar expuesto el personal durante la ejecucion de sus actividades . Permite gestionar y controlar dichas areas, asi como generar alarmas y programacion de simulacros" href="<?= dirname($_SERVER['PHP_SELF']).'/img/home/servicios/s5box.jpg';?>">
-                            <figure>
-                                <?= $this->Html->image('home/servicios/s5.png',['alt' => 'SDG','class' => 'class="responsive redimencionar']); ?>
-                                <figcaption>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                </div>
+
+                <?php 
+                    $numero = 0;
+                    foreach ($servicio as $servicios):
+                        $numero = $numero+1;
+                    endforeach;
+
+                    $off = 6;
+                    $off = $off - $numero;
+                ?>
+
+                <?php $i = 0;?>
+                <?php foreach ($servicio as $servicios): ?>
+                    <?php
+                        if ($i == 0) {
+                    ?>
+                        <div class="col-md-2 <?= "col-md-offset-".$off ?> w3agile_gallery_grid">
+                            <div class="w3agile_gallery_image">
+                                <a class="sb" title="<?= $servicios->descripcion ?>" href="<?= dirname($_SERVER['PHP_SELF']).'/img/home/servicios/'.$servicios->box.'';?>">
+                                    <figure>
+                                        <?= $this->Html->image('home/servicios/'.$servicios->img.'',['alt' => 'RPS','class' => 'class="responsive redimencionar']); ?>
+                                        <figcaption>
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                            </div>
+                        </div>
+                    <?php
+                        }else{
+                    ?>
+                        <div class="col-md-2 w3agile_gallery_grid">
+                            <div class="w3agile_gallery_image">
+                                <a class="sb" title="<?= $servicios->descripcion ?>" href="<?= dirname($_SERVER['PHP_SELF']).'/img/home/servicios/'.$servicios->box.'';?>">
+                                    <figure>
+                                        <?= $this->Html->image('home/servicios/'.$servicios->img.'',['alt' => 'RPS','class' => 'class="responsive redimencionar']); ?>
+                                        <figcaption>
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                            </div>
+                        </div>
+                    <?php
+                        }
+                        $i++;
+                    ?>    
+                <?php endforeach; ?>
 
                <div class="clearfix"> </div>
             </div>
@@ -216,45 +208,30 @@ endif;
                 <div class="clearfix"> </div>
             </div>
             <div class="wthree_banner_info">
-                <div class="col-md-4 wthree_banner_info_left">
-                    <div class="col-xs-4 wthree_banner_info_left_grid">
-                        <div class="wthree_banner_info_left_grid1">
-                            <?= $this->Html->image('home/noticias/n3.jpg',['alt' => 'noticias3', 'class' => 'img-responsive']);?>
+                <?php foreach ($noticia as $noticias): ?>
+                    <div class="col-md-4 wthree_banner_info_left">
+                        <div class="col-xs-4 wthree_banner_info_left_grid">
+                            <div class="wthree_banner_info_left_grid1">
+                                <?= $this->Html->image('home/noticias/'.$noticias->img.'',['alt' => 'noticias3', 'class' => 'img-responsive']);?>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xs-8 wthree_banner_info_left_grid_left">
-                        <h3>Ultimas Tendencias</h3>
-                        <span>12/12/2017 08:00 AM</span>
-                        <p>Las nuevas tecnologias que se vienen para el 2018 <a href="#">mas...</a></p>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="col-md-4 wthree_banner_info_left">
-                    <div class="col-xs-4 w3l_banner_info_left_grid">
-                        <div class="wthree_banner_info_left_grid1">
-                            <?= $this->Html->image('home/noticias/n1.jpg',['alt' => 'noticias3', 'class' => 'img-responsive']);?>
+                        <div class="col-xs-8 wthree_banner_info_left_grid_left">
+                            <h3><?= $noticias->titulo; ?></h3>
+                            <span> <?= $noticias->created; ?> </span>
+                            <?php
+                              if (strlen($noticias->descripcion) > 100) {
+                                $descripcion = substr($noticias->descripcion, 0,100);
+                                $descripcion = $descripcion." <a href='#'>ver mas...</a>";
+                              }else
+                                $descripcion = $noticias->descripcion;
+
+                            ?>
+                            <p> <?= $descripcion ?> </a></p>
                         </div>
+                        <div class="clearfix"> </div>
                     </div>
-                    <div class="col-xs-8 wthree_banner_info_left_grid_left">
-                        <h3>Decreto Petrolero</h3>
-                        <span>12/12/2017 08:00 AM</span>
-                        <p>Se activo el nuevo decreto petrolero <a href="#">mas...</a></p>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="col-md-4 wthree_banner_info_left">
-                    <div class="col-xs-4 wthree_banner_info_left_grid">
-                        <div class="wthree_banner_info_left_grid1">
-                            <?= $this->Html->image('home/noticias/n2.jpg',['alt' => 'noticias3', 'class' => 'img-responsive']);?>
-                        </div>
-                    </div>
-                    <div class="col-xs-8 wthree_banner_info_left_grid_left">
-                        <h3>Tecnologia y desigualdad</h3>
-                        <span>12/12/2017 08:00 AM</span>
-                        <p>Esta tendencia analiza el potencial de la tecnología para <a href="#">mas...</a></p>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
+                <?php endforeach; ?>
+
                 <div class="clearfix"> </div>
             </div>
             
@@ -271,32 +248,27 @@ endif;
                 <div class="row">
                     <div class="col-md-12">
                         <section class="center slider">
+                            <?php foreach ($cliente as $clientes): ?>
                             <div>
-                                <?= $this->Html->image("home/clientes/de.png"); ?>
+                                <?= $this->Html->image("home/clientes/".$clientes->img.""); ?>
                             </div>
-                            <div>
-                                <?= $this->Html->image("home/clientes/gts.png"); ?>
-                            </div>
-                            <div>
-                                <?= $this->Html->image("home/clientes/pdvsa.png"); ?>
-                            </div>
-                            <div>
-                                <?= $this->Html->image("home/clientes/wcl.png"); ?>
-                            </div>
+                            <?php endforeach; ?>
                         </section>
                     </div>
                 </div>
             </div>
+    <br><br>
         </div>
     </div>
 <!-- nuestros clientes -->
-
 
 <!-- //Contact -->
     <div class="contact" id="contact">
         <div class="container">
             <h3 class="tittle" id="titulo_contacto">Contactanos</h3>
-            <span>Estamos ubicados en la zona industrial de maturin estado monagas</span>
+                <?php foreach ($empresa as $empresas): ?>
+                    <span><?= h($empresas->direccion) ?></span>
+                <?php endforeach; ?>
         </div>
     </div>
 
@@ -327,7 +299,7 @@ endif;
                                     echo $this->Form->input('nombre');
                                     echo $this->Form->input('apellido');
                                     echo $this->Form->input('link',['type' => 'file']);
-                                    echo $this->Form->input('profesion_id');
+                                    echo $this->Form->input('profesiones.profecion');
                                     echo $this->Form->button('enviar');
                                     echo $this->Form->end();
                                 ?>
@@ -338,6 +310,25 @@ endif;
             </div>
         </div>  
     </div>
+
+<!-- certificaciones-->
+    <div class="team" id="certificaciones">
+        <div class="container">
+            <h3 id="certificacion_title">Certificaciones</h3>
+            <span>Estamos certificados bajo los mas altos estandares</span>
+            <div class="container">
+                <div class="row">
+                    <?php  foreach ($certificacion as $certificaciones): ?>
+                        <div class="col-md-6">
+                            <?= $this->Html->image("home/certificaciones/".$certificaciones->img."",['class' => 'img-certificaciones']); ?>
+                        </div>
+                    <?php  endforeach; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- cierre de certificaciones-->
+
 
     <div class="google-map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15730.889346700622!2d-63.26730791189444!3d9.7047225887852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c3339a96694cf1d%3A0x5b3b2690fff5e13c!2sMercado+de+Mayoristas%2C+Av.+Zona+Industrial%2C+Matur%C3%ADn%2C+Monagas!5e0!3m2!1ses!2sve!4v1512661625503"></iframe>

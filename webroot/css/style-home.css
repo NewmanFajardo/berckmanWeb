@@ -3295,3 +3295,15 @@ i.fa-envelope-o {
     width: 200px;
     height: auto;
 }
+
+.team h3#certificacion_title:after{
+    right: 30%;
+}
+.team h3#certificacion_title:before{
+    left: 30%;
+}
+
+.img-certificaciones{
+    width: 200px !important;
+    margin-top: 20px;
+}

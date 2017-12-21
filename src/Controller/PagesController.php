@@ -75,10 +75,44 @@ class PagesController extends AppController
      */
     public function home(){
         $this->loadModel('Empresas');
-        $empresa = $this->Empresas->find('all'); 
-        $this->set('empresa',$empresa);
+        $this->loadModel('Clientes');
+        $this->loadModel('Noticias');
+        $this->loadModel('Servicios');
+        $this->loadModel('Certificaciones');
+        $this->loadModel('Curriculums');
 
-        $Curriculo = TableRegistry::get('Curriculums')->newEntity();
-        $this->set("curriculo",$Curriculo);
+
+        $curriculo = TableRegistry::get('Curriculums');
+        $curriculo = $curriculo->newEntity(['associated' => 'Profesiones']);
+
+        $empresa = $this->Empresas->find('all');
+        $cliente = $this->Clientes->find(
+                                            'all',
+                                            array('conditions' => array('estatus'=>'Activo')),
+                                            array('order' => 'posicion ASC')
+                                        );
+
+        $certificacion = $this->Certificaciones->find('all');
+
+        $noticia = $this->Noticias->find(
+                                            'all',
+                                            array(
+                                                'conditions' => array('estatus'=>'Activo'), 
+                                                'order' => 'id DESC',
+                                                'limit' => 3,
+                                            )
+                                        );
+
+        $servicio = $this->Servicios->find(
+                                            'all',
+                                            array(
+                                                'conditions' => array('estatus'=>'Activo','activador' => 1), 
+                                                'order' => 'posicion ASC',
+                                                'limit' => 5,
+                                            )
+                                        );
+
+        $this->set(compact('empresa',$empresa,'cliente',$cliente,'noticia',$noticia,'certificacion',$certificacion,'servicio',$servicio,'curriculo',$curriculo));
+
     }
 }
