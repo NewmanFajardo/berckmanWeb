@@ -86,14 +86,14 @@ class UsuariosTable extends Table
             ->notEmpty('estatus');
 
         $validator
-            ->integer('posicion')
-            ->requirePresence('posicion', 'create')
-            ->notEmpty('posicion');
-
-        $validator
             ->integer('intentos')
             ->requirePresence('intentos', 'create')
             ->notEmpty('intentos');
+
+        $validator
+            ->integer('nivel')
+            ->requirePresence('nivel', 'create')
+            ->notEmpty('nivel');
 
         return $validator;
     }

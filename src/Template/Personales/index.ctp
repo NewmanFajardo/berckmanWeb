@@ -10,7 +10,7 @@
     <div class="col-xs-12">
         <div class="main-content main-content4">
             <div class="panel-body1">
-                <h3 class="blank1"><?= __('Personales') ?></h3>
+                <h3 class="blank1"><?= __('Registros de Personales') ?></h3>
                 <table class="table table-striped" cellpadding="0" cellspacing="0">
                         <thead>
                             <tr>
@@ -32,7 +32,7 @@
                                     <!-- <td><?= $personale->has('empresa') ? $this->Html->link($personale->empresa->id, ['controller' => 'Empresas', 'action' => 'view', $personale->empresa->id]) : '' ?></td> -->
                                     <td class="actions">
                                         <?= $this->Html->link(__('Ver'), ['action' => 'ver', $personale->id] , ['class' => 'btn btn-info' , 'title' => 'Ver detalles']) ?>
-                                        <?= $this->Html->link(__('Modificar'), ['action' => 'modificar', $personale->id] , ['class' => 'btn btn-primary' , 'title' => 'Modificar']) ?>
+                                        <?= $this->Html->link(__('Editar'), ['action' => 'modificar', $personale->id] , ['class' => 'btn btn-primary' , 'title' => 'Modificar']) ?>
                                         <?= $this->Form->postLink(__('Elimiar'), ['action' => 'eliminar', $personale->id], ['confirm' => __('Desea eliminar el personal '.$personale->nombre.' ?', $personale->id) , 'class' => 'btn btn-danger' , 'title' => 'Eliminar']) ?>
                                     </td>
                                 </tr>

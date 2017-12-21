@@ -1,8 +1,8 @@
 <?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Personale $personale
- */
+/*
+    * Author: Newman Fajardo
+    * Formulario para crear nuevos personales
+*/
 ?>
 <!-- <div class="personales form large-9 medium-8 columns content">
     <?= $this->Form->create($personale) ?>

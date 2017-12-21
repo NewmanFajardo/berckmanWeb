@@ -4,25 +4,18 @@ namespace App\Controller;
 use App\Controller\AppController;
 
 /**
- * Personales Controller
- *
- * @property \App\Model\Table\PersonalesTable $Personales
- *
- * @method \App\Model\Entity\Personale[] paginate($object = null, array $settings = [])
+ * Autor Newman Fajardo
+ * Controlador de Personal
  */
 class PersonalesController extends AppController
 {
 
     /**
-    * Metodo para mostrar todos clientes
+    * Metodo para mostrar todos personales
     */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Empresas']
-        ];
-        $personales = $this->paginate($this->Personales);
-
+        $personales = $this->Personales->find();
         $this->set(compact('personales'));
         $this->set('_serialize', ['personales']);
     }
@@ -71,6 +64,7 @@ class PersonalesController extends AppController
         $personale = $this->Personales->get($id);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $personale = $this->Personales->patchEntity($personale, $this->request->getData());
+            $personale->empresa_id=1;
             if ($this->Personales->save($personale)) {
                 $this->Flash->success(__('Registro modificardo.'));
 
@@ -94,9 +88,9 @@ class PersonalesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $personale = $this->Personales->get($id);
         if ($this->Personales->delete($personale)) {
-            $this->Flash->success(__('The personale has been deleted.'));
+            $this->Flash->success(__('Persolan eliminado.'));
         } else {
-            $this->Flash->error(__('The personale could not be deleted. Please, try again.'));
+            $this->Flash->error(__('Error al eliminar.'));
         }
 
         return $this->redirect(['action' => 'index']);

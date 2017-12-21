@@ -30,7 +30,7 @@
                     </div>
                     <div class='row'>
                         <div class='col-xs-6 text-right'>".
-                            $this->Form->button('Registrar',['class' => 'btn btn-success'])
+                            $this->Form->button('Modificar',['class' => 'btn btn-success'])
                         ."</div>
                         <div class='col-xs-6'>".
                             $this->Html->link('Cancelar' , ['action' => 'index'] , ['class' => 'btn btn-danger'])."

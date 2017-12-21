@@ -15,8 +15,8 @@ class PersonalesUsuariosTable extends AbstractMigration
         $table = $this->table("personales_usuarios");
         $table->addColumn('created','datetime')
               ->addColumn('modified','datetime')
-              ->addColumn('personal_id','integer',array('signed' => 'disabled'))
-              ->addForeignKey('personal_id', 'personales' , 'id' , array('delete' => 'CASCADE' , 'update' => 'CASCADE') )
+              ->addColumn('personale_id','integer',array('signed' => 'disabled'))
+              ->addForeignKey('personale_id', 'personales' , 'id' , array('delete' => 'CASCADE' , 'update' => 'CASCADE') )
               ->addColumn('usuario_id','integer',array('signed' => 'disabled'))
               ->addForeignKey('usuario_id', 'usuarios' , 'id' , array('delete' => 'CASCADE' , 'update' => 'CASCADE') )
               ->create();

@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 
 /**
+ * Autor Newman Fajardo
  * Controlador de clientes
  */
 class ClientesController extends AppController

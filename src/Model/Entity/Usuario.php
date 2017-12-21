@@ -9,8 +9,8 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $clave
  * @property string $estatus
- * @property int $posicion
  * @property int $intentos
+ * @property int $nivel
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
@@ -34,8 +34,8 @@ class Usuario extends Entity
     protected $_accessible = [
         'clave' => true,
         'estatus' => true,
-        'posicion' => true,
         'intentos' => true,
+        'nivel' => true,
         'created' => true,
         'modified' => true,
         'bitacoras' => true,
